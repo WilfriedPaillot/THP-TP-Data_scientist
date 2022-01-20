@@ -1,9 +1,7 @@
-# Combien y a-t-il de handle dans cette array
 def countHandles(array)
   puts "#{array.length}"
 end
 
-# Quel est le handle le plus court de cette liste ?
 def shortestHandle(array)
   min = array.min { |a,b| a.length <=> b.length }
   puts "#{min}"
@@ -11,7 +9,35 @@ end
 
 # Combien y-a-t'il de handle contenant 5 caractères (le @ ne compte pas pour un caractère)
 def fiveChar(array)
-  puts "#{array.count { |handle| handle.length == 5 }}"
+  # enlever le @ de chaque handle
+  array.map! { |handle| handle.delete('@') }
+  # compter le nombre de handle avec 5 caractères
+  count = 0
+  array.each do |handle|
+    if handle.length == 5
+      count += 1
+    end
+  end
+  puts "#{count}"
+end
+
+# Trie la liste de handle par ordre alphabétique
+def sortHandlesByAtoZ(array)
+  array.sort!
+  puts "#{array}"
+end
+
+# Trie la liste de handle par taille des handle (les plus petits en premiers, les plus grands après)
+def sortHandlesBySize(array)
+  array.sort! { |a,b| a.length <=> b.length }
+  puts "#{array}"
+end
+
+# Quelle est la position dans l'array de la personne @epenser ?
+def positionOf(array)
+  # chercher la position de @epenser
+  position = array.index('epenser')
+  puts "#{position}"
 end
 
 def perform
@@ -19,6 +45,9 @@ def perform
   countHandles(array)
   shortestHandle(array)
   fiveChar(array)
+  sortHandlesByAtoZ(array)
+  sortHandlesBySize(array)
+  positionOf(array)
 end
 
 perform
