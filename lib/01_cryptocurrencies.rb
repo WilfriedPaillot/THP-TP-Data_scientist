@@ -27,8 +27,14 @@ values = ["6558.07", "468.95", "0.487526", "762.84", "8.86", "85.26", "0.151268"
 hash = createHash(cryptos, values)
 ## début d'appels des fonctions
 createHash(cryptos, values)
+puts ""
+puts "La crypto ayant la plus grande valeur est :"
 biggestValues(hash)
+puts ""
+puts "Liste des cryptos avec une valorisation inférieures à 6000 :"
 lowerThan6k(hash)
+puts ""
+puts "La devise la plus valorisée en dessous de 6000 est : "
 mostValuableUnder6k(hash)
 end
 
